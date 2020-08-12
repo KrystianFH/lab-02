@@ -55,25 +55,34 @@ const addDropdownItems = () => {
   });
 };
 
-// This is where we ended on lab 2, getting the right image to populate once selected
+$('select').on('change', hideAnimals);
 
-// $('select').on('change', function(){
-//   $('section').hide();
-  
-//   $('section').each((index, element) => {
-//     if 
-//   })
+function hideAnimals(){
+ const selectedKeyword = $(this).val();
 
-// });
+ $('section').hide();
 
-// $("#show").on(function(){
-//   $("p").show();
-// });
+hornedAnimals.forEach(function(dataAnimal){
+  if(selectedKeyword === dataAnimal.keyword) {
+    const name = dataAnimal.name;
+    const imageOption = $('section');
+    imageOption.each(function(){
+      console.log(name);
+      console.log('first if statement');
+      if($(this).find('h2').text()=== name){
+        $(this).show();
+        console.log($(this),'it worked');
+      }
+    });
+  }
+});
+}
+
+$('li:first-child').hide();
 
 //Referenced Material: https://www.w3schools.com/jquery/jquery_hide_show.asp
 
 $.get('../data/page-1.json')
   .then(handleTheFileAnimals);
 
-// const keyword = document.getElementById
 
