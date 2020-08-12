@@ -19,7 +19,6 @@ main {
 section {
   display: inline-block;
   line-height: 100px;
-  float: center;
 }
 
 footer {
