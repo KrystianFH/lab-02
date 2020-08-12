@@ -1,3 +1,30 @@
 img {
-  max-width: 100%;
+  max-width: 50%;
+  height: 300px;
+  margin-left: 125px;
+ text-align: center;
+}
+header {
+  margin-top: 25px;
+  text-align: center;
+  font-size: 25px;
+  font-family: fantasy;
+}
+main {
+  margin-top: 25px;
+  font-size: 25px;
+  font-family: fantasy;
+}
+
+section {
+  display: inline-block;
+  line-height: 100px;
+  float: center;
+}
+
+footer {
+  float: center;
+  margin-top: 25px;
+  font-size: 25px;
+  font-family: fantasy;
 }
