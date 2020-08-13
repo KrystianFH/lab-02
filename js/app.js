@@ -7,7 +7,14 @@ $.ajax('../data/page-1.json', {
   console.log('Great Success!');
 });
 
-const hornedAnimals = [];
+$.ajax('../data/page-2.json', {
+  method: 'get',
+  dataType: 'json'
+}).then(function(){
+  console.log('Great Success page 2!');
+});
+
+let hornedAnimals = [];
 const keywords = [];
 
 function Animal (name, src, alt, keyword){
@@ -19,9 +26,14 @@ function Animal (name, src, alt, keyword){
   hornedAnimals.push(this);
 }
 
+Animal.prototype.renderWithMustache = function(){
+  const newHtml = Mustache.render($('#horned-animals').html(),this);
+  $('main').append(newHtml);
+};
+
 Animal.prototype.renderWithJquery = function() {
 
-  const $clonedAnimal = $('section:first-child').clone();
+  const $clonedAnimal = $('#photo-template').clone();
   console.log($clonedAnimal);
 
   $clonedAnimal.find('h2').text(this.name);
@@ -36,14 +48,22 @@ const handleTheFileAnimals = dataAnimals => {
   console.log(dataAnimals);
   dataAnimals.forEach(dataAnimal => {
     new Animal (dataAnimal.title, dataAnimal.image_url, dataAnimal.description, dataAnimal.keyword, dataAnimal.horns);
-
-    keywords.push(dataAnimal.keyword);
+    
+    if (!keywords.includes(dataAnimal.keyword)) {
+      
+      keywords.push(dataAnimal.keyword);
+      
+    }
 
   });
 
-  hornedAnimals.forEach(hornedAnimalsValue => hornedAnimalsValue.renderWithJquery());
+  // hornedAnimals.forEach(hornedAnimalsValue => hornedAnimalsValue.renderWithJquery());
+ 
+  hornedAnimals.forEach(hornedAnimalsValue => hornedAnimalsValue.renderWithMustache());
+
   addDropdownItems();
 };
+
 
 const addDropdownItems = () => {
   const $dropdown = $('select');
@@ -81,6 +101,20 @@ hornedAnimals.forEach(function(dataAnimal){
 $('li:first-child').hide();
 
 //Referenced Material: https://www.w3schools.com/jquery/jquery_hide_show.asp
+
+$('button').on('click', showPgTwo);
+
+function showPgTwo(){
+
+ $('main').empty();
+
+ hornedAnimals = [];
+
+ $('option:not(:first-child)').remove();
+
+ $.get('../data/page-2.json')
+ .then(handleTheFileAnimals);
+}
 
 $.get('../data/page-1.json')
   .then(handleTheFileAnimals);

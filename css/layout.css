@@ -2,7 +2,7 @@ img {
   max-width: 50%;
   height: 300px;
   margin-left: 125px;
- text-align: center;
+  text-align: center;
 }
 header {
   margin-top: 25px;
@@ -14,16 +14,30 @@ main {
   margin-top: 25px;
   font-size: 25px;
   font-family: fantasy;
+  width: 960px;
+  
 }
 
 section {
   display: inline-block;
   line-height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 400px;
+  justify-content: space-between;
+}
+
+button {
+  display: block;
+  line-height: 10px;
+  margin: auto;
 }
 
 footer {
-  float: center;
   margin-top: 25px;
   font-size: 25px;
   font-family: fantasy;
+  
 }
+
