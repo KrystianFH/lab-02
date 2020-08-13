@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="/css/layout.css">
 
     <script id="horned-animals" type="text/x-tmpl-mustache">
-      
+      <section>
         <h2>{{name}}</h2>
         <img src="{{src}}" alt="{{altText}}">
         <p>{{altText}}</p>
-      
+      </section> 
     
     </script>
 
@@ -20,21 +20,26 @@
   <body>
     <header>
       <h1>The Gallery of Horns</h1>
-      <select>
-        <option value="default">Filter by Keyword</option>
-      </select>
-      <button>Click to see more creatures!</button>
-    </header>
-    <main>
-    </main>
-    <section id="photo-template">
-      <!-- <h2></h2>
-      <img src="" alt="">
-      <p></p> -->
-    </section>
-    <footer>
-      &copy; 2018 Code Fellows
-    </footer>
+        <select id="keyword-dropdown">
+          <option value="default">Filter by Keyword</option>
+        </select>
+        <select id="sort">
+          <option value="default">Sort</option>
+          <option value="horns">Number of Horns</option>
+          <option value="name">Type</option>
+        </select>
+        <button>Click to see more creatures!</button>
+      </header>
+      <main>
+      </main>
+      <section id="photo-template">
+        <!-- <h2></h2>
+        <img src="" alt="">
+        <p></p> -->
+      </section>
+      <footer>
+        &copy; 2018 Code Fellows
+      </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.0.1/mustache.min.js"
     integrity="sha512-6AXIWogbKpsHvoZJrJtHpIYES4wP8czSj0zk7ZfwOYS8GWYFNSykwdfapt7yQc4ikZytemBu+QyVObzBHJMwYg=="
     crossorigin="anonymous"></script>
