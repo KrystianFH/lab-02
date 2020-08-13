@@ -137,3 +137,4 @@ $.get('../data/page-2.json')
  
 $.get('../data/page-1.json')
  .then(handleTheFileAnimals);
+ 
