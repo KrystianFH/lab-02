@@ -26,6 +26,11 @@ function Animal (name, src, alt, keyword){
   hornedAnimals.push(this);
 }
 
+Animal.prototype.renderWithMustache = function(){
+  const newHtml = Mustache.render($('#horned-animals').html(),this);
+  $('main').append(newHtml);
+};
+
 Animal.prototype.renderWithJquery = function() {
 
   const $clonedAnimal = $('#photo-template').clone();
@@ -52,7 +57,10 @@ const handleTheFileAnimals = dataAnimals => {
 
   });
 
-  hornedAnimals.forEach(hornedAnimalsValue => hornedAnimalsValue.renderWithJquery());
+  // hornedAnimals.forEach(hornedAnimalsValue => hornedAnimalsValue.renderWithJquery());
+ 
+  hornedAnimals.forEach(hornedAnimalsValue => hornedAnimalsValue.renderWithMustache());
+
   addDropdownItems();
 };
 

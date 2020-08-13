@@ -52,19 +52,19 @@ Estimate of time needed to complete: 3 hours
 
 Start time: 4:40p
 
-Finish time: 
+Finish time: 5:10p
 
-Actual time needed to complete: 
+Actual time needed to complete: 30min
 
 Number and name of feature: Feature #3 - Styling with Flexbox
 
 Estimate of time needed to complete: 3 hours
 
-Start time: 
+Start time: 5:10p
 
-Finish time: 
+Finish time: 5:40p
 
-Actual time needed to complete: 
+Actual time needed to complete: 30minutes
 
 Number and name of feature: Feature #4 - Sort the images
 
