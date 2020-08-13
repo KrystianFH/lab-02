@@ -17,11 +17,12 @@ $.ajax('../data/page-2.json', {
 let hornedAnimals = [];
 const keywords = [];
 
-function Animal (name, src, alt, keyword){
+function Animal (name, src, alt, keyword, horns){
   this.name = name;
   this.src = src;
   this.altText = alt;
   this.keyword = keyword;
+  this.horns = horns;
 
   hornedAnimals.push(this);
 }
@@ -57,16 +58,13 @@ const handleTheFileAnimals = dataAnimals => {
 
   });
 
-  // hornedAnimals.forEach(hornedAnimalsValue => hornedAnimalsValue.renderWithJquery());
- 
   hornedAnimals.forEach(hornedAnimalsValue => hornedAnimalsValue.renderWithMustache());
 
   addDropdownItems();
 };
 
-
 const addDropdownItems = () => {
-  const $dropdown = $('select');
+  const $dropdown = $('#keyword-dropdown');
   
   keywords.forEach(keyword => {
     const $option = $(`<option value = "${keyword}">${keyword}</option>`);
@@ -75,11 +73,35 @@ const addDropdownItems = () => {
   });
 };
 
-$('select').on('change', hideAnimals);
+$('#keyword-dropdown').on('change', hideAnimals);
+
+// This where we left off of lab 03
+// $('#sort').on('change', sortAnimals);
+
+// function sortAnimals(){
+//   const selectedSort = $(this).val();
+//   console.log(selectedSort);
+
+//   hornedAnimals.sort( (a, b) => {
+//     if(a < b) {
+//       return 1;
+//     } else if (a > b) {
+//       return -1;
+//     } else {
+//       return 0;
+//     }
+//   })
+//   return hornedAnimals;
+
+// }
+
+// $('main').empty();
+
+// hornedAnimals.forEach(hornedAnimalsValue => hornedAnimalsValue.sortAnimals());
 
 function hideAnimals(){
  const selectedKeyword = $(this).val();
-
+console.log(selectedKeyword);
  $('section').hide();
 
 hornedAnimals.forEach(function(dataAnimal){
@@ -97,8 +119,6 @@ hornedAnimals.forEach(function(dataAnimal){
   }
 });
 }
-
-$('li:first-child').hide();
 
 //Referenced Material: https://www.w3schools.com/jquery/jquery_hide_show.asp
 
