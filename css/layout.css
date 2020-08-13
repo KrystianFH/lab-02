@@ -3,22 +3,21 @@ img {
   height: 300px;
   margin-left: 125px;
   text-align: center;
-}
-header {
+ }
+ header {
   margin-top: 25px;
   text-align: center;
   font-size: 25px;
   font-family: fantasy;
-}
-main {
+ }
+ main {
   margin-top: 25px;
   font-size: 25px;
   font-family: fantasy;
   width: 960px;
+  }
   
-}
-
-section {
+ section {
   display: inline-block;
   line-height: 100px;
   display: flex;
@@ -26,18 +25,18 @@ section {
   align-items: center;
   height: 400px;
   justify-content: space-between;
-}
-
-button {
+ }
+  
+ button {
   display: block;
   line-height: 10px;
   margin: auto;
-}
-
-footer {
+ }
+  
+ footer {
   margin-top: 25px;
   font-size: 25px;
   font-family: fantasy;
+  }
   
-}
-
+ 
